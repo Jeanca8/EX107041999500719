@@ -28,5 +28,11 @@ router.get('/all', function(req, res, next){
     res.json(Empresa);
 });
 
+router.post('/new', function(req, res,next){
+    var _newEmpresa  = Object.assign({}, EmpresaTemplate, req.body);
+    _newEmpresa.RTN = 123456789;
+    Empresa.push(_newEmpresa);
+    res.json(_newEmpresa);
+});
 
 module.exports = router;

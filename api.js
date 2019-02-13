@@ -12,6 +12,21 @@ var EmpresaTemplate = {
     Telefono:""
 }
 
+Empresa.push(
+    {
+    RTN:"123456789",
+    Empresa:"Coporacion Flores",
+    Correo:"cflores@yahoo.com",
+    Rubro:"Venta de Automiles",
+    Direccion:"Tegusigalpa MDC",
+    Telefono:"2236-5982" 
+    }
+);
+
+
+router.get('/all', function(req, res, next){
+    res.json(Empresa);
+});
 
 
 module.exports = router;

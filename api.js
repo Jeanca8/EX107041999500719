@@ -35,4 +35,21 @@ router.post('/new', function(req, res,next){
     res.json(_newEmpresa);
 });
 
+router.put('/Empresa/:RTN', function(req, res, next){
+    var RTN = req.params.RTN;
+    var modifiedEmpresa = 123456789;
+    Empresa = Empresa.map(
+        function(Empresa, index) {
+            if (Empresa.RTN === RTN){
+                modifiedEmpresa = Object.assign(Empresa, req.body);
+                return modifiedEmpresa;
+            } else {
+                return Empresa;
+            }
+
+        }
+    );
+    res.json(modifiedEmpresa);
+})
+
 module.exports = router;

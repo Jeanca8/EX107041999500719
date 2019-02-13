@@ -52,4 +52,14 @@ router.put('/Empresa/:RTN', function(req, res, next){
     res.json(modifiedEmpresa);
 })
 
+router.delete('/Empresa/:RTN', function(req, res, next){
+    var RTN = req.params.RTN;
+    Empresa = Empresa.filter(
+        function(Empresas, index) {
+            return Empresas.RTN !== RTN;
+        }
+    );
+    res.json({deleted:true});
+})
+
 module.exports = router;
